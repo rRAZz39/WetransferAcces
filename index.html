@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Accès sécurisé</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <h2>Entrer votre nom et prénom</h2>
+  <input type="text" id="nameInput" placeholder="Nom Prénom">
+  <button onclick="checkAccess()">Valider</button>
+  <p id="result"></p>
+
+  <script>
+    const authorized = [
+      "Jean Dupont",
+      "Marie Durand",
+      "Luc Morel"
+    ];
+    const link = "https://we.tl/TON-LIEN"; // Remplace ce lien
+
+    function checkAccess() {
+      const input = document.getElementById('nameInput').value.trim();
+      const result = document.getElementById('result');
+      if (authorized.includes(input)) {
+        result.innerHTML = `<a href="${link}" target="_blank">Clique ici pour accéder au lien</a>`;
+      } else {
+        result.textContent = "Accès refusé.";
+        result.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
